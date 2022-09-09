@@ -14,9 +14,7 @@
             "cwd": "${workspaceRoot}",
             "preLaunchTask": "Cargo Build (debug)",
             "runToMain": true,
-            "executable": "./target/thumbv7m-none-eabi/debug/{{project-name}}",
-            /* Run `cargo build --example hello` and uncomment this line to run semi-hosting example */
-            //"executable": "./target/thumbv7m-none-eabi/debug/examples/hello",
+            "executable": "./target/{{triplet}}/debug/{{project-name}}",
             "cpu": "cortex-m3",
             "machine": "lm3s6965evb",
         },
@@ -29,13 +27,10 @@
             "cwd": "${workspaceRoot}",
             "preLaunchTask": "Cargo Build (debug)",
             "runToMain": true,
-            "executable": "./target/thumbv7em-none-eabihf/debug/{{project-name}}",
-            /* Run `cargo build --example itm` and uncomment this line to run itm example */
-            // "executable": "./target/thumbv7em-none-eabihf/debug/examples/itm",
+            "executable": "./target/{{triplet}}/debug/{{project-name}}",
             "device": "STM32F303VCT6",
             "configFiles": [
-                "interface/stlink-v2-1.cfg",
-                "target/stm32f3x.cfg"
+                "${workspaceRoot}/openocd.cfg"
             ],
             "svdFile": "${workspaceRoot}/.vscode/STM32F303.svd",
             "swoConfig": {
@@ -44,7 +39,11 @@
                 "swoFrequency": 2000000,
                 "source": "probe",
                 "decoders": [
-                    { "type": "console", "label": "ITM", "port": 0 }
+                    {
+                        "type": "console",
+                        "label": "ITM",
+                        "port": 0
+                    }
                 ]
             }
         }

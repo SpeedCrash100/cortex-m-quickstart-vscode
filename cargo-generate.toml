@@ -1,0 +1,13 @@
+[placeholders.triplet]
+type = "string"
+prompt = "Select target triplet"
+choices = [
+    "thumbv6m-none-eabi",
+    "thumbv7m-none-eabi",
+    "thumbv7em-none-eabi",
+    "thumbv7em-none-eabihf",
+    "thumbv8m.base-none-eabi",
+    "thumbv8m.main-none-eabi",
+    "thumbv8m.main-none-eabihf"
+    ]
+default = "thumbv7m-none-eabi"
